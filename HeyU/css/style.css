@@ -1,0 +1,604 @@
+/*тобы сайт выглядел нормально даже, если не прогрузились стили
+по каким-то причинам. 
+Потом, чтобы его отменить пришлось использовать !important  свойства
+background-color: transparent !important; Стоит ли вообще в наше время тратить время, чтобы продумывать, как 
+страница будет выглядеть без стилей, чтобы даже на HTML-странице без
+стилей человек Я считаю, что стоит, но
+мб это нерационально уже? Например, человек просто покинет страницу
+и не будет на ней ничего делать? Для каких-то определенных ресурсов
+это может иметь смысл. Или по ситуации - если 
+Стараются ли сейчас верстальщики сделать сайт доступным 
+даже без стилей? 
+или так никто не делает и я просто непонятностей приношу в код?
+
+
+1. Старалась (как могла на данном этапе) сделать страницу доступной даже при отлюченных
+стилях, чтобы даже только по "голой" разметке можно было ориентириваться на сайте и пользоваться
+всем функционалом сайта.  
+Например, инлайново задала фон у белого логотипа (т.к. стандартный фон браузера - белый). 
+Из-за этого в CSS пришлось использовать !important, чтобы переопределить фон на прозрачный.
+
+
+2. Вытекает из первого пункта. Нарушила структуру дизайна, т.е. при верстке
+в некоторых местах верстала не придерживаясь принципа "сверху-вниз слева-направо", т.к. 
+так смотрелось гармоничнее. Например, сначала текст, а потом картинки к этомй тексту, а в дизайне - 
+когда картинка слева (т.е. до текста), когда справа ... В стилях просто поменяла order у элементов,
+чтобы они были как на дизайне.
+Критично ли не придерживаться структуры сайта это? 
+3. Если я обнулю высоту и ширину визуально скрытого объекта,
+то он будет восприниматься скринридерами?
+
+Недостатки: всё огроменное для экранов шириной
+менее 1200зч,
+картинки плохо вырезала.
+*/
+
+body {
+  min-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  font-family: 'Lato', Tahoma, sans-serif;
+  color: #363636;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, p, ul, li, a {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.display-none {
+  display: none;
+}
+
+.visually-hidden {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.button {
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.point-heading {
+  font-weight: 900;
+  font-size: 60px;
+}
+
+.point-heading::after {
+  content: ".";
+  width: 10px;
+  height: 10px;
+  color: #dc0f42;
+  padding-left: 3px;
+}
+
+.grey-line {
+  height: 1px;
+  width: inherit;
+  background-color: #e0e0e0;
+}
+
+/* HEADER */
+
+.main-header {
+  min-height: 969px;
+  background: linear-gradient(#dc0f42, #e93d2c);
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 42px;
+  min-height: 50px;
+}
+
+.header-logo img {
+  background-color: transparent !important;
+}
+
+.header-nav {
+  font-size: 0;
+}
+
+.header-nav li {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 65px;
+}
+
+.header-nav a {
+  font-size: 18px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.header-nav a:hover {
+  text-decoration: line-through;
+}
+
+
+.header-promo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 117px;
+}
+
+.promo-text-title {
+  font-size: 72px;
+  width: 419px;
+  padding-top: 80px;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.promo-text-description {
+  margin-top: 30px;
+  font-size: 24px;
+  margin-bottom: 120px;
+  color: #fff;
+}
+
+.promo-text-description span {
+  font-weight: 900;
+}
+
+.button-download {
+  padding: 15px 55px;
+  background-color: #fff;
+  color: #dc0f42;
+}
+
+.promo-image {
+  margin-right: -55px;
+}
+
+/* SECTION 'BENEFITS' */
+
+.benefits {
+  margin-bottom: 100px;
+}
+
+.benefits-item {
+  display: flex;
+  align-items: center;
+}
+
+.benefits-first {
+  height: 790px;
+}
+
+.benefits-first-text {
+  order: 2;
+  margin-left: 90px;
+  margin-top: -40px;
+}
+
+.benefits-first-image {
+  order: 1;
+  margin-left: -35px; 
+}
+
+.benefits-description {
+  font-weight: 400;
+  font-size: 18px;
+  color: #808080;
+  line-height: 32px;
+  padding-top: 30px;
+}
+
+.benefits-first-description {
+  width: 500px;
+}
+
+.benefits-second-text {
+  margin-top: -100px;
+}
+
+.benefits-second-description {
+  width: 557px;
+}
+
+.benefits-second-image {
+  margin-top: -90px;
+  margin-left: 100px; 
+}
+
+/* SECTION 'FEEDBACK' */
+
+.feedback-title {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.feedback-list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 125px;
+}
+
+.feedback-item {
+  height: 100%;
+  width: 370px;
+}
+
+.feedback-content {
+  margin: 0;
+  padding-top: 20px;
+  padding-right: 50px;
+  padding-left: 30px; 
+  padding-bottom: 15px;
+  font-style: italic;
+  font-weight: 400;
+  border: 1px solid #e0e0e0;
+}
+
+.feedback-content p {
+  font-style: italic;
+  font-size: 18px;
+  color: #808080;
+  line-height: 32px;
+}
+
+.feedback-content span {
+  display: block;
+  margin-top: 15px;
+  color: #dc0f42;
+  font-style: normal;
+}
+
+.feedback-author {
+  height: 62px;
+  margin-top: 30px;
+}
+
+.feedback-author p {
+  padding-top: 11px;
+  padding-left: 80px;
+}
+
+.feedback-author-first {
+  background-image: url(../img/ceo-booking.png);
+  background-repeat: no-repeat;
+}
+
+.feedback-author-second {
+  background-image: url(../img/ceo-airbnb.png);
+  background-repeat: no-repeat;
+}
+
+.feedback-author-third {
+  background-image: url(../img/ceo-symu.png);
+  background-repeat: no-repeat;
+}
+
+/* SECTION 'FEATURES' */
+
+.features {
+  height: 520px;
+  background: linear-gradient(#dc0f42, #e93d2c);
+  margin-top: 200px;
+}
+
+.features-flex {
+  display: flex;  
+  justify-content: space-between;
+  align-items: center;
+  width: 1170px;
+}
+
+.features-flex h3 {
+  font-weight: 900;
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.features-flex p {
+  margin-top: 15px;
+  margin-bottom: 65px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+  opacity: 0.6;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+}
+
+.features-left {
+  flex-basis: 400px;
+  margin-top: -55px;
+  text-align: right;
+  padding-right: 60px;
+}
+
+/*
+.icons-left {
+  flex-basis: 130px;
+  text-align: center;
+}
+
+.icons-left img {
+  display: block;
+  text-align: center;
+   margin-left: 30px;
+}
+
+.icons-left img[src="img/talk-icon.png"] {
+  margin-bottom: 0px;
+ 
+}
+
+.icons-left img[src="img/call-icon.png"] {
+  margin-bottom: 50px;
+ 
+}
+*/
+
+
+.video-login {
+  position: relative;
+  flex-basis: 370px;
+  text-align: center;
+  margin-top: -85px;
+  height: 735px;
+  background-image: url(../img/video-bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.button-play {
+  position: absolute;
+  bottom: 392px;
+  left: 177px;
+  height: 56px;
+  width: 56px;
+  margin-left: -28px;
+  margin-bottom: -28px; 
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-image: url(../img/play-icon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+}
+
+/*
+.icons-right {
+  flex-basis: 130px;
+  text-align: center;
+}
+
+.icons-right img {
+  display: block;
+}
+
+.icons-left img[src="img/camera-icon.png"] {
+  margin-bottom: 50px;
+}
+*/
+.features-right {
+  flex-basis: 400px;
+  margin-top: -55px;
+  padding-left: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SECTION 'SUBSCRIBE' */
+
+.subscribe-title {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.subscribe-description {
+  margin-top: 40px;
+  font-size: 18px;
+  color: #808080;
+  text-align: center;
+}
+
+.subscribe-form {
+  margin: 0 auto;
+  margin-top: 70px;
+  margin-bottom: 147px;
+  display: flex;
+  justify-content: center;
+  width: 570px;
+  background-color: #f8f8f8;
+  border-radius: 25px; 
+}
+
+.subscribe-field {
+  border: none;
+  background-color: #f8f8f8;
+  height: 45px; 
+  width: 390px;
+  border-radius: 25px; 
+}
+
+input.subscribe-field[placeholder="Your email adress"] {
+  padding-left: 30px;
+}
+
+input.subscribe-field[placeholder="Your email adress"]:focus {
+  outline: none;
+}
+
+.button-subscribe {
+  border: none;
+  cursor: pointer;
+  width: 180px;
+  background: linear-gradient(#dc0f42, #e93d2c); 
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.button-subscribe:hover {
+  box-shadow: 0 0 30px 0 rgba(223,27,61,0.5);
+}
+
+.button-subscribe:focus {
+  outline: none;
+}
+
+/* SECTION 'DOWNLOAD' */
+
+.download-icon {
+  margin-top: 105px;
+}
+
+.download-icon img {
+  display: block;
+  margin: 0 auto;
+}
+
+.download-icon img:hover {
+  -webkit-filter: drop-shadow(0 0 30px rgba(223,27,61,0.5));
+  filter: drop-shadow(0 0 30px rgba(223,27,61,0.5));
+}
+
+.download-title {
+  text-align: center;
+  margin-top: 55px;
+}
+
+.download-description {
+  margin-top: 40px;
+  font-size: 18px;
+  color: #808080;
+  text-align: center;
+}
+
+.button-appstore img {
+  display: block;
+  margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 150px;
+}
+
+/* FOOTER */
+
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+.footer-nav {
+  font-size: 0;
+}
+
+
+.footer-nav li {
+  display: inline-block;
+  vertical-align: top;
+
+}
+
+.footer-nav a {
+  font-size: 18px;
+  color: #363636;
+  text-transform: uppercase;
+  padding-right: 65px;
+}
+
+.footer-nav a:hover {
+  text-decoration: line-through;
+}
+
+.lang {
+  position: relative;
+}
+
+.button-lang {
+  border: none;
+  background-color: #f8f8f8;
+  border-radius: 25px;
+  padding: 10px;
+  padding-left: 30px;
+  width: 190px;
+  color: #363636;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.button-lang::after {
+  content: url(../img/arrow-down.png); /*arrow-up.png*/
+  padding-left: 60px;
+  height: 8px;
+  width: 12px;
+}
+
+
+/* Для переключения языков */
+
+.button-lang:focus {
+  outline: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.lang-content {
+  display: none; 
+
+  position: absolute;
+  bottom: 38px;
+  background-color: #f8f8f8;
+  width: 190px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.lang-content li {
+  padding: 10px;
+  padding-left: 35px;
+}
+
+.lang-content li:hover {
+  background-color: #b9b4b4;
+}
+
+.lang-content a {
+  text-decoration: none;
+  color: #363636;
+  text-transform: uppercase;
+}
+
+.lang-content li:first-child {
+  background-color: #b9b4b4;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
