@@ -1,38 +1,3 @@
-/*тобы сайт выглядел нормально даже, если не прогрузились стили
-по каким-то причинам. 
-Потом, чтобы его отменить пришлось использовать !important  свойства
-background-color: transparent !important; Стоит ли вообще в наше время тратить время, чтобы продумывать, как 
-страница будет выглядеть без стилей, чтобы даже на HTML-странице без
-стилей человек Я считаю, что стоит, но
-мб это нерационально уже? Например, человек просто покинет страницу
-и не будет на ней ничего делать? Для каких-то определенных ресурсов
-это может иметь смысл. Или по ситуации - если 
-Стараются ли сейчас верстальщики сделать сайт доступным 
-даже без стилей? 
-или так никто не делает и я просто непонятностей приношу в код?
-
-
-1. Старалась (как могла на данном этапе) сделать страницу доступной даже при отлюченных
-стилях, чтобы даже только по "голой" разметке можно было ориентириваться на сайте и пользоваться
-всем функционалом сайта.  
-Например, инлайново задала фон у белого логотипа (т.к. стандартный фон браузера - белый). 
-Из-за этого в CSS пришлось использовать !important, чтобы переопределить фон на прозрачный.
-
-
-2. Вытекает из первого пункта. Нарушила структуру дизайна, т.е. при верстке
-в некоторых местах верстала не придерживаясь принципа "сверху-вниз слева-направо", т.к. 
-так смотрелось гармоничнее. Например, сначала текст, а потом картинки к этомй тексту, а в дизайне - 
-когда картинка слева (т.е. до текста), когда справа ... В стилях просто поменяла order у элементов,
-чтобы они были как на дизайне.
-Критично ли не придерживаться структуры сайта это? 
-3. Если я обнулю высоту и ширину визуально скрытого объекта,
-то он будет восприниматься скринридерами?
-
-Недостатки: всё огроменное для экранов шириной
-менее 1200зч,
-картинки плохо вырезала.
-*/
-
 body {
   min-width: 1200px;
   margin: 0 auto;
@@ -327,30 +292,6 @@ h1, h2, h3, p, ul, li, a {
   padding-right: 60px;
 }
 
-/*
-.icons-left {
-  flex-basis: 130px;
-  text-align: center;
-}
-
-.icons-left img {
-  display: block;
-  text-align: center;
-   margin-left: 30px;
-}
-
-.icons-left img[src="img/talk-icon.png"] {
-  margin-bottom: 0px;
- 
-}
-
-.icons-left img[src="img/call-icon.png"] {
-  margin-bottom: 50px;
- 
-}
-*/
-
-
 .video-login {
   position: relative;
   flex-basis: 370px;
@@ -379,41 +320,11 @@ h1, h2, h3, p, ul, li, a {
   background-color: transparent;
 }
 
-/*
-.icons-right {
-  flex-basis: 130px;
-  text-align: center;
-}
-
-.icons-right img {
-  display: block;
-}
-
-.icons-left img[src="img/camera-icon.png"] {
-  margin-bottom: 50px;
-}
-*/
 .features-right {
   flex-basis: 400px;
   margin-top: -55px;
   padding-left: 50px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* SECTION 'SUBSCRIBE' */
 
@@ -521,7 +432,6 @@ input.subscribe-field[placeholder="Your email adress"]:focus {
   font-size: 0;
 }
 
-
 .footer-nav li {
   display: inline-block;
   vertical-align: top;
@@ -562,43 +472,6 @@ input.subscribe-field[placeholder="Your email adress"]:focus {
   width: 12px;
 }
 
-
-/* Для переключения языков */
-
 .button-lang:focus {
   outline: none;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.lang-content {
-  display: none; 
-
-  position: absolute;
-  bottom: 38px;
-  background-color: #f8f8f8;
-  width: 190px;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
-
-.lang-content li {
-  padding: 10px;
-  padding-left: 35px;
-}
-
-.lang-content li:hover {
-  background-color: #b9b4b4;
-}
-
-.lang-content a {
-  text-decoration: none;
-  color: #363636;
-  text-transform: uppercase;
-}
-
-.lang-content li:first-child {
-  background-color: #b9b4b4;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
 }
